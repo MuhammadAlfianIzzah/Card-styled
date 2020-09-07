@@ -1,0 +1,150 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #33bfff;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  color: white;
+  align-items: center;
+}
+.card {
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 300px;
+  height: 60vh;
+  /* border: 1px solid red; */
+  flex-direction: column;
+  background-color: #0276aa;
+  align-items: center;
+  position: relative;
+  transition: all 1s ease;
+}
+.card:hover {
+  background: none;
+}
+.card .title {
+  margin-top: 10px;
+  font-size: 2em;
+  font-weight: 600;
+}
+.card:hover .deskripsi {
+  opacity: 0.5;
+}
+.card:hover .sosmed {
+  opacity: 1;
+  bottom: 0;
+}
+.card img {
+  margin: 0 0;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+.card .img {
+  margin: 20px 0;
+  border-radius: 50%;
+  width: 150px;
+  border: 2px solid rgba(7, 6, 6, 0.7);
+  height: 150px;
+  position: relative;
+}
+.card .img:hover {
+  animation: getar 300ms ease-in-out;
+  cursor: pointer;
+}
+@keyframes getar {
+  0% {
+    transform: translateX(4px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(-4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.card .img::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border: 2px solid silver;
+  position: absolute;
+  opacity: 0.5;
+  animation: wafe 1s linear infinite;
+}
+@keyframes wafe {
+  to {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+.card .deskripsi {
+  padding: 10px 20px;
+  text-align: justify;
+}
+.card::after {
+  content: "";
+  position: absolute;
+  bottom: -100%;
+  width: 100%;
+  transition: all 800ms ease;
+  height: 100%;
+  z-index: -2;
+  background-image: linear-gradient(
+    to right,
+    #ff8177 0%,
+    #ff867a 0%,
+    #ff8c7f 21%,
+    #f99185 52%,
+    #cf556c 78%,
+    #b12a5b 100%
+  );
+}
+.card:hover {
+  color: white;
+}
+.card:hover::after {
+  bottom: 0;
+}
+.card .sosmed {
+  opacity: 0;
+  transition: all 300ms ease;
+  background-color: #1769aa;
+  bottom: -55px;
+  position: absolute;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  height: 50px;
+  /* border: 1px solid green; */
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+  border-radius: 20px 20px 0 0;
+}
+.card .sosmed i {
+  color: white;
+  font-size: 2em;
+}
+
+.card .sosmed i:hover {
+  animation: goyang 400ms ease-in-out forwards;
+}
+@keyframes goyang {
+  to {
+    transform: rotate(360deg) scale(1.4);
+  }
+}
